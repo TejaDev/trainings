@@ -121,12 +121,34 @@ Ab10234
 
 # Classes
 
-1. Create class PremierLeague with following attributes: postion, club, played, won, drawn, lost, points
+1. Create class PremierLeagueClub with following attributes: postion, club, played, won, drawn, lost, points
 2. class should have following methods:
+    - get_points() - to recalculate points use formula (won * 3 + drawn)
+	- get_games_played() - use formula (won + drawn + lost)
 	- get_magic_formula() should return played multiplyed by points, e.g: (played * points)
 	- get_info() - should return string with all club information joined by '-' e.g: "1 - Leicester City - 25 - 15 - 8 - 2 - 53"
+	- set_won_game() - should update played, won and points - 
+	- set_lost_game() - should update played, lost
 
 3. You should be able to sort PremierLeague objects by magic_fomula score
+
+
+Example
+
+arsenal = PremierLeagueClub(postion=3, club="Arsenal", won=14, drawn=6, lost=5)
+arsenal.get_games_played() # should return 25
+arsenal.get_points()       # should return 48
+
+arsenal.set_lost_game()
+
+arsenal.get_games_played() # should return 26
+arsenal.get_points()       # should return 48
+
+
+arsenal.set_won_game()
+
+arsenal.get_games_played() # should return 27
+arsenal.get_points()       # should return 51
 
 
 	
