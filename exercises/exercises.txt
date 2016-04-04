@@ -1,19 +1,57 @@
-# Simple math - solve
+# Open python interactive mode and type following expressions:
 
-8 * 15 + 4
-1.0 - 2.5 * 3
-0.5^2 - 10/2
-x^2 - 25 = 0
+2 + 2
+2 + 2.0
+2 - 2
 
-# Strings
+4/2
+4/3
+4/3.0
+4.0/3.0
+4//3
 
-- Create four labels: name, surname, age, country and assign your personal information
-- print this information as:
+2*2
+2**3
 
-a) "NAME SURNAME"
-b) "NAME SURNAME from COUNTRY"
-c) "NAME - AGE"
+2/0
 
+'A' + "B"
+'A' - "B"
+"A" * 3
+
+"2" + "2"
+
+"Hello" + " " + "World"
+
+"{} {}".format("Hello", "World")
+
+"{} + {} = {}".format(2, 2, 2+2)
+
+a = 3
+b = 2
+c = a + b
+"{a} + {b} = {c}".format(a, b, c)
+
+type(a)
+type(b)
+type(c)
+
+a = 2.0
+type(a)
+
+a = "Python"
+type(a)
+
+s = "Python"
+s[0]
+s[1]
+s[2]
+s[3]
+s[4]
+s[5]
+s[99]
+s[-1]
+s[-2]
 
 # Lists
 Create following lists:
@@ -54,7 +92,17 @@ expected output:
 2) create list PREMIER_LEAGUE_POINTS and put these three dictionaries inside this list
 	
 
-# Control flow
+# Control flow 1
+
+Write a program that asks the user to provide numbers.
+If total sum of all provided number is higher than 100 you can stop program.
+
+
+You can write two versions of this program: in interactive mode or in script mode.
+
+
+# Control flow 2
+
 
 IMPORTANT: You should use PREMIER_LEAGUE_POINTS list created in previous exercise
 
@@ -67,7 +115,7 @@ expected output: [{'Leicester City': 53}, {'Tottenham Hotspur': 48}, {'Arsenal':
 
 
 # Functions_1
-Create a function “tax_price_calculator” that calculates the total price of a product.
+Create a function tax_price_calculator that calculates the total price of a product.
 - The formula for calculating the price is: price + price * TAX%. 
 - The function will receive the price and tax as parameter. 
 
@@ -84,6 +132,14 @@ Hint:
 module "string" - https://docs.python.org/2/library/string.html
 module "random" - https://docs.python.org/2/library/random.html
 
+
+# Functions_3
+Calculating Fibonacci Series upto n numbers.
+
+In fibonacci series, next number is the sum of previous two numbers for example 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 etc.
+The first two numbers of fibonacci series are 0 and 1.
+
+Ask the user to provide numbers limit.
 
 
 Example:
