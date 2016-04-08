@@ -1,0 +1,54 @@
+# show sys/os modules
+
+how to list all files and directories from /home/$USER directory using os
+module
+
+- create list with all file's names (not directories)
+
+# subprocess module in python
+
+example how to execute external commands, for example
+
+# example 1:
+uname -a
+
+as output you should have something similar: Linux vmaster 4.4.2-301.fc23.x86_64 #1 SMP Tue Feb 23
+19:00:38 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+then try to create python list that will contain all this information and write
+this infomation to file
+
+e.g ['Linux', 'vmaster', '4.4.2-301.fc23.x86_64']
+
+# example 2: (exercise)
+
+In python script run this command: ps -aux and collect only first 10 lines
+(wirte this lines to file)
+
+
+# PyFilesystem - examples, compare with subprocess
+
+from fs.osfs import OSFS
+from fs.ftpfs import FTPFS
+
+# recap: how to install additional libraries in Python
+pip install requests
+
+# task with web scraping
+- pip install requests
+- pip install BeautifulSoup
+- from this site https://www.python.org/downloads/ list out all adresses for
+  downloading python
+
+
+# context managers
+
+# regular expressions - simple example with email address and IP
+
+# json
+
+# writing scripts - script parameters, sys.argv and argparsers
+
+# powerful oneliners
+
+# pycharm - how to use

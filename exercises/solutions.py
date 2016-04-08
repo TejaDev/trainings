@@ -201,9 +201,9 @@ def exc_functions_2():
 def exc_files():
 
     # 1. create random.dat file - to file insert random string of size 512 characters
-
-    with open('random.dat', 'w') as f:
-        f.write(generate_password(512))
+    f = open('random.dat', 'w')
+    #with open('random.dat', 'w') as f:
+    f.write(generate_password(512))
 
     with open('random.dat', 'r') as f:
         content = f.read()
@@ -228,10 +228,11 @@ def exc_files():
 
 
 class PremierLeagueClub(object):
+
     def __init__(self, position, club, won, drawn, lost):
         self.position = position
         self.club = club
-        self.won = won
+        self.__won = won
         self.drawn = drawn
         self.lost = lost
         self.played = self.won + self.drawn + self.lost
@@ -245,11 +246,11 @@ class PremierLeagueClub(object):
         return self.won + self.drawn + self.lost
 
     def get_magic_formula(self):
-        played = self.get_games_played()
-        return self.points * played
+        #played = self.get_games_played()
+        return self.points * self.played
 
     def get_info(self):
-        to_print = "{o.position} - {o.club} - {o.played} - {o.won} - {o.drawn} - {o.lost} - {o.points}"
+        to_print = "{o.position}- {o.club} - {o.played} - {o.won} - {o.drawn} - {o.lost} - {o.points}"
         return to_print.format(o=self)
 
     def set_won_game(self, number_of_won_games=1):
@@ -315,8 +316,12 @@ def exc_classes():
 
     manchester = PremierLeagueClub(position=1, club="Manchester", won=14, drawn=6, lost=5)
     liverpool = PremierLeagueClub(position=1, club="Liverpool", won=13, drawn=6, lost=5)
+	print manchester
+    L = [manchester, liverpool]
+	L.sort()
+	print L
 
-    print(manchester.get_magic_formula())
+    print(manchester.ge_magic_formula())
     print(liverpool.get_magic_formula())
 
     print("Compare clubs by magic_formula:", manchester > liverpool)
