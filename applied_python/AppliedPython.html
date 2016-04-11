@@ -171,12 +171,31 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Applied-Python-(Python-in-practice)">Applied Python (Python in practice)<a class="anchor-link" href="#Applied-Python-(Python-in-practice)">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Python-Standard-Library">The Python Standard Library<a class="anchor-link" href="#The-Python-Standard-Library">&#182;</a></h4><p><a href="https://docs.python.org/2/library/">https://docs.python.org/2/library/</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>                                                                                       
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>                                                                                     
 
 <span class="n">day_today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Today is {day}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="n">day_today</span><span class="p">)</span>
@@ -192,7 +211,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="n">day_today</span> <span class="ow">is</span> <span class="s2">&quot;Friday&quot;</span><span class="p">:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># IF/ELSE </span>
+
+<span class="k">if</span> <span class="n">day_today</span> <span class="o">==</span> <span class="s2">&quot;Friday&quot;</span><span class="p">:</span>
     <span class="k">print</span> <span class="s2">&quot;Today is Friday!!&quot;</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span> <span class="s2">&quot;Today is {day}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="n">day_today</span><span class="p">)</span>
@@ -208,11 +229,31 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># # multiply each number by 2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># IN operator</span>
+
+<span class="k">if</span> <span class="n">day_today</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s2">&quot;Today is {day}! Hurray! The weekend has landed!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="n">day_today</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Nope. It is&#39;t weeked. Today is {day}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="n">day_today</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># FOOR LOOP</span>
+
+<span class="c1"># multiply each number by 2</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">number</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">print</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 
 </div>
@@ -249,9 +290,13 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># List comprehension</span>
 
+<span class="c1"># modulo (%) operation finds the remainder after division of one number by another</span>
+
+<span class="c1"># Even numbers always end with a digit of 0, 2, 4, 6 or 8</span>
 <span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span> <span class="s2">&quot;Even numbers: &quot;</span><span class="p">,</span> <span class="n">even_numbers</span>
 
+<span class="c1"># Odd numbers always end with a digit of 1, 3, 5, 7, or 9</span>
 <span class="n">odd_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="k">print</span> <span class="s2">&quot;Odd numbers:&quot;</span><span class="p">,</span> <span class="n">odd_numbers</span>
 </pre></div>
@@ -266,7 +311,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SETS</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="n">even_numbers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
@@ -289,7 +336,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># WHILE LOOP, BREAK</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please provide number: &quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span> <span class="s2">&quot;Number {} is even&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -310,7 +359,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">is_number_even</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># DEF, RETURN</span>
+
+<span class="k">def</span> <span class="nf">is_number_even</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span> <span class="s2">&quot;Number {} is even&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">True</span>
@@ -319,7 +370,6 @@ div#notebook {
     <span class="k">else</span><span class="p">:</span>
         <span class="k">print</span> <span class="s2">&quot;is it number: {}?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">False</span>
-
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please provide number: &quot;</span><span class="p">)</span>
@@ -337,7 +387,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TRY/EXCEPT</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please provide number: &quot;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -429,6 +481,15 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Let's-practice">Let's practice<a class="anchor-link" href="#Let's-practice">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -534,11 +595,14 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Using previous example, please create python dictionary 
 that will contain information about file name and its size.
-You can use /etc/ directory.</p>
-<p>Hint 1: remember to check if file exists
-Hint 2: use file name as dictionary key</p>
-<p>Your output should be similar to 'Output example':
-Output example:</p>
+You can use /etc as source directory.</p>
+<ul>
+<li>Hint 1: remember to check if file exists, <code>os.path.isfile(path_to_file)</code></li>
+<li>Hint 2: use file path as dictionary key, <code>files_size[file_path] = file_size</code></li>
+<li>Hint 3: to create dictionary you can use list of tuples e.g: <code>dict( [ (key1, value), (key2, value), ...] )</code></li>
+<li>Hint 4: to create path to file, you can concatenate dir path and file name, <code>os.path.join( directory, file_name )</code></li>
+</ul>
+<p>Your output should be similar to:</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s1">&#39;/etc/sane.d/stv680.conf&#39;</span><span class="p">:</span> <span class="mi">178</span><span class="p">,</span>
     <span class="s1">&#39;/etc/redhat-release&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
@@ -575,12 +639,35 @@ Output example:</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SECOND SOLUTION</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">files_size</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">):</span>
+            <span class="n">files_size</span><span class="p">[</span><span class="n">path_to_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">files_size</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="How-to-sort-dictionaries">How to sort dictionaries<a class="anchor-link" href="#How-to-sort-dictionaries">&#182;</a></h4>
+<h4 id="How-to-sort-data-structures">How to sort data structures<a class="anchor-link" href="#How-to-sort-data-structures">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -589,7 +676,9 @@ Output example:</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="k">print</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
@@ -600,70 +689,14 @@ Output example:</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Sort dictionary from previous exercise by file size. 
-Largest files should go first.</p>
-<p>Hint: Boot sort and sorted method accept a reverse parameter with a boolean value. 
-This is using to flag descending sorts.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SOLUTION</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># EXAMPLES</span>
 
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files_size</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">files_size</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="n">files_size</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Create a function: get_files_size that will take two arguments:</p>
-<ol>
-<li><code>directory</code> - string, directory name, e.g.: /etc, by default use '/tmp' directory</li>
-<li><code>reverse</code>   - boolean, if True use descending sorts, by default should be set as False</li>
-</ol>
-<p>Function should return python dictionary that will contain information about file name and its size.</p>
-<p>Please use solutions from previous exercises.</p>
-<p>Example: how to invoke this function?</p>
-<div class="highlight"><pre><span></span><span class="n">get_files_size</span><span class="p">(</span><span class="s1">&#39;/etc/&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
-<p>Additionally: try to execute this function as follows:</p>
-<ul>
-<li><code>print get_files_size()</code></li>
-<li><code>print get_files_size('/etc')</code></li>
-<li><code>print get_files_size('/etc', reverse=True)</code></li>
-</ul>
-<p>Hit: use OrderedDict</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-</pre></div>
-<p>Hint: use itemgetter or lambda notation to get second element from tuple</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;testfile&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;testfile&#39;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="mi">450</span><span class="p">)]</span>
+<span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;testfile&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;testfile&#39;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="mi">450</span><span class="p">)]</span>
 
 <span class="n">list_of_tuples</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">list_of_tuples</span>
@@ -678,6 +711,32 @@ This is using to flag descending sorts.</p>
 <span class="c1"># second approach</span>
 <span class="n">list_of_tuples</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">print</span> <span class="n">list_of_tuples</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># To clarify conversion between dict and list of tuples</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>  <span class="c1"># Dictionary</span>
+
+
+<span class="c1"># How to convert dictionary to list of tuples</span>
+
+<span class="n">list_of_tuples</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>  <span class="c1"># List of tuples: [ (k1, v), (k2, v), (k3, v), ... (kn, v)]</span>
+<span class="k">print</span> <span class="n">list_of_tuples</span>
+
+<span class="c1"># How to convert list of tuples to dictionary</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">list_of_tuples</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">d</span>
 </pre></div>
 
 </div>
@@ -720,6 +779,67 @@ This is using to flag descending sorts.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Sort dictionary from previous exercise by file size. 
+Largest files should go first.</p>
+<ul>
+<li>Hint 1: Boot sort and sorted method accept a reverse parameter with a boolean value. 
+This is using to flag descending sorts.</li>
+</ul>
+<p><code>d.sort(reverse=True)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SOLUTION</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files_size</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">files_size</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="n">files_size</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Create a function: get_files_size that will take two arguments:</p>
+<ol>
+<li><code>directory</code> - string, directory name, e.g.: /etc, by default use '/tmp' directory</li>
+<li><code>reverse</code>   - boolean, if True use descending sorts, by default should be set as False</li>
+</ol>
+<p>Function should return python dictionary that will contain information about file name and its size.</p>
+<p>Please use solutions from previous exercises.</p>
+<p>Example: how to invoke this function?</p>
+<div class="highlight"><pre><span></span><span class="n">get_files_size</span><span class="p">(</span><span class="s1">&#39;/etc/&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+<p>Additionally: try to execute this function as follows:</p>
+<ul>
+<li><code>print get_files_size()</code></li>
+<li><code>print get_files_size('/etc')</code></li>
+<li><code>print get_files_size('/etc', reverse=True)</code></li>
+</ul>
+<p>Hit 1: use OrderedDict</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+</pre></div>
+<p>Hint 2: use itemgetter or lambda notation to get second element from tuple</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
@@ -741,7 +861,35 @@ This is using to flag descending sorts.</p>
     
     <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_files</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
             
+<span class="k">print</span> <span class="n">get_files_size</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">)</span>
+</pre></div>
 
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SECOND SOLUTION</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="k">def</span> <span class="nf">get_files_size</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">files_size</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">):</span>
+                <span class="n">files_size</span><span class="p">[</span><span class="n">path_to_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">files_size</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
+            
 <span class="k">print</span> <span class="n">get_files_size</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -863,13 +1011,42 @@ This is using to flag descending sorts.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s2">&quot;directory: &quot;</span><span class="p">,</span> <span class="n">directory</span>
+    <span class="k">print</span> <span class="s2">&quot;verbose:   &quot;</span><span class="p">,</span> <span class="n">verbose</span>
+    
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="kn">import</span> <span class="nn">argparse</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Script to list out files from given directory&#39;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--directory&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source directory&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;If set, print more details&#39;</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">do_something</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">&#182;</a></h3><p>Using previous exercises create a script that will ask user to provide directory name and sorting order.
-and list out each file from provided directory and its size.</p>
+List out each file from provided directory and its size.</p>
 <p>You can use function get_files_size.</p>
 <p>Input arguments:</p>
 <ol>
@@ -896,14 +1073,14 @@ and list out each file from provided directory and its size.</p>
 <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
 
 <span class="k">def</span> <span class="nf">get_files_size</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    <span class="n">list_of_files</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">files_size</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">):</span>
         <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
             <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">):</span>
-                <span class="n">list_of_files</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)))</span>
+                <span class="n">files_size</span><span class="p">[</span><span class="n">path_to_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_files</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">files_size</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
             
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -934,11 +1111,12 @@ and list out each file from provided directory and its size.</p>
 <p>By default (if no file path specified) write output to /tmp directory and name file as follows:
 <code>&lt;TIMESTAMP&gt;</code>_files.out</p>
 <p>where <code>&lt;TIMESTAMP&gt;</code> is the current unix timestamp (seconds since Jan 01 1970. (UTC))</p>
-<p>Hint:
+<p>Hint 1:
 To get unix timestamp:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 </pre></div>
+<p>Hint 2: You can write your own function to write output to file</p>
 <p>Input arguments:</p>
 <ol>
 <li><code>directory</code> - string, directory name, e.g.: /etc, by default use '/tmp' directory</li>
@@ -948,6 +1126,69 @@ To get unix timestamp:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># How to write to file</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;first line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;second line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;third line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># How to write to file</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;first line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;second line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;third line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">list_of_lines</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;line1&#39;</span><span class="p">,</span> <span class="s1">&#39;line2&#39;</span><span class="p">,</span> <span class="s1">&#39;line3&#39;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;{} </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+
+<span class="c1"># or even better</span>
+
+<span class="n">list_of_lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;{} </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">list_of_lines</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/tmp/file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">list_of_lines</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -968,14 +1209,14 @@ To get unix timestamp:</p>
 <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
 
 <span class="k">def</span> <span class="nf">get_files_size</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    <span class="n">list_of_files</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">files_size</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/etc&#39;</span><span class="p">):</span>
         <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
             <span class="n">path_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">):</span>
-                <span class="n">list_of_files</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">path_to_file</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)))</span>
-
-    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_files</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
+                <span class="n">files_size</span><span class="p">[</span><span class="n">path_to_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path_to_file</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">files_size</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">get_timestamp</span><span class="p">():</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
@@ -991,6 +1232,7 @@ To get unix timestamp:</p>
     <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">print</span> <span class="s2">&quot;Cannot write output to file, &quot;</span><span class="p">,</span> <span class="n">exc</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
@@ -1230,7 +1472,7 @@ To get unix timestamp:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -1243,21 +1485,6 @@ To get unix timestamp:</p>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>http://httpbin.org/get?key2=value2&amp;key1=value1
-{u&apos;origin&apos;: u&apos;188.121.0.13&apos;, u&apos;headers&apos;: {u&apos;Host&apos;: u&apos;httpbin.org&apos;, u&apos;Accept-Encoding&apos;: u&apos;gzip, deflate&apos;, u&apos;Accept&apos;: u&apos;*/*&apos;, u&apos;User-Agent&apos;: u&apos;python-requests/2.9.1&apos;}, u&apos;args&apos;: {u&apos;key2&apos;: u&apos;value2&apos;, u&apos;key1&apos;: u&apos;value1&apos;}, u&apos;url&apos;: u&apos;http://httpbin.org/get?key2=value2&amp;key1=value1&apos;}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1336,12 +1563,46 @@ To get unix timestamp:</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-ElementTree-XML-API">The ElementTree XML API<a class="anchor-link" href="#The-ElementTree-XML-API">&#182;</a></h4><p><a href="https://docs.python.org/2/library/xml.etree.elementtree.html">https://docs.python.org/2/library/xml.etree.elementtree.html</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">country_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="s2">&lt;data&gt;</span>
+<span class="s2">    &lt;country name=&quot;Liechtenstein&quot;&gt;</span>
+<span class="s2">        &lt;rank&gt;1&lt;/rank&gt;</span>
+<span class="s2">        &lt;year&gt;2008&lt;/year&gt;</span>
+<span class="s2">        &lt;gdppc&gt;141100&lt;/gdppc&gt;</span>
+<span class="s2">        &lt;neighbor name=&quot;Austria&quot; direction=&quot;E&quot;/&gt;</span>
+<span class="s2">        &lt;neighbor name=&quot;Switzerland&quot; direction=&quot;W&quot;/&gt;</span>
+<span class="s2">    &lt;/country&gt;</span>
+<span class="s2">    &lt;country name=&quot;Singapore&quot;&gt;</span>
+<span class="s2">        &lt;rank&gt;4&lt;/rank&gt;</span>
+<span class="s2">        &lt;year&gt;2011&lt;/year&gt;</span>
+<span class="s2">        &lt;gdppc&gt;59900&lt;/gdppc&gt;</span>
+<span class="s2">        &lt;neighbor name=&quot;Malaysia&quot; direction=&quot;N&quot;/&gt;</span>
+<span class="s2">    &lt;/country&gt;</span>
+<span class="s2">    &lt;country name=&quot;Panama&quot;&gt;</span>
+<span class="s2">        &lt;rank&gt;68&lt;/rank&gt;</span>
+<span class="s2">        &lt;year&gt;2011&lt;/year&gt;</span>
+<span class="s2">        &lt;gdppc&gt;13600&lt;/gdppc&gt;</span>
+<span class="s2">        &lt;neighbor name=&quot;Costa Rica&quot; direction=&quot;W&quot;/&gt;</span>
+<span class="s2">        &lt;neighbor name=&quot;Colombia&quot; direction=&quot;E&quot;/&gt;</span>
+<span class="s2">    &lt;/country&gt;</span>
+<span class="s2">&lt;/data&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
 </pre></div>
 
 </div>
@@ -1354,7 +1615,23 @@ To get unix timestamp:</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">ET</span>
+
+<span class="c1"># if you want to read XML data from file</span>
+<span class="c1">#tree = ET.parse(&#39;country_data.xml&#39;)</span>
+<span class="c1">#root = tree.getroot()</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">country_data</span><span class="p">)</span>
+
+<span class="n">countries</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Country: &quot;</span><span class="p">,</span> <span class="n">country</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    
+    <span class="n">country_neighbours</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;neighbor&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">country_neighbours</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Neigbor: &quot;</span><span class="p">,</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        
+    <span class="k">print</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span>
 </pre></div>
 
 </div>

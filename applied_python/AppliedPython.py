@@ -1,9 +1,15 @@
 
 # coding: utf-8
 
+# # Applied Python (Python in practice)
+
+# #### The Python Standard Library
+# 
+# https://docs.python.org/2/library/
+
 # In[ ]:
 
-import datetime                                                                                       
+import datetime                                                                                     
 
 day_today = datetime.date.today().strftime("%A")
 print "Today is {day}".format(day=day_today)
@@ -11,7 +17,9 @@ print "Today is {day}".format(day=day_today)
 
 # In[ ]:
 
-if day_today is "Friday":
+# IF/ELSE 
+
+if day_today == "Friday":
     print "Today is Friday!!"
 else:
     print "Today is {day}".format(day=day_today)
@@ -19,11 +27,23 @@ else:
 
 # In[ ]:
 
-# # multiply each number by 2
+# IN operator
+
+if day_today in ['Saturday', 'Sunday']:
+    print "Today is {day}! Hurray! The weekend has landed!".format(day=day_today)
+else:
+    print "Nope. It is't weeked. Today is {day}".format(day=day_today)
+
+
+# In[ ]:
+
+# FOOR LOOP
+
+# multiply each number by 2
 
 numbers = [1, 2, 3, 4, 5, 6, 7]
 for number in numbers:
-    print number ** 2
+    print number * 2
 
 
 # In[ ]:
@@ -44,14 +64,20 @@ for number in numbers:
 
 # List comprehension
 
+# modulo (%) operation finds the remainder after division of one number by another
+
+# Even numbers always end with a digit of 0, 2, 4, 6 or 8
 even_numbers = [number for number in range(1,11) if number % 2 == 0]
 print "Even numbers: ", even_numbers
 
+# Odd numbers always end with a digit of 1, 3, 5, 7, or 9
 odd_numbers = [number for number in range(1,11) if number % 2 == 1]
 print "Odd numbers:", odd_numbers
 
 
 # In[ ]:
+
+# SETS
 
 numbers = range(1, 30)
 even_numbers = [number for number in range(1,11) if number % 2 == 0]
@@ -68,6 +94,8 @@ print "Odd numbers: ", odd_numbers
 
 # In[ ]:
 
+# WHILE LOOP, BREAK
+
 while True:
     number = input("Please provide number: ")
     if number % 2 == 0:
@@ -80,6 +108,8 @@ while True:
 
 
 # In[ ]:
+
+# DEF, RETURN
 
 def is_number_even(number):
     if number % 2 == 0:
@@ -91,7 +121,6 @@ def is_number_even(number):
         print "is it number: {}?".format(number)
     return False
 
-
 while True:
     number = input("Please provide number: ")
     is_number_even(number)
@@ -99,6 +128,8 @@ while True:
 
 
 # In[ ]:
+
+# TRY/EXCEPT
 
 while True:
     number = input("Please provide number: ")
@@ -172,6 +203,8 @@ result = action()
 print result
 
 
+# ## Let's practice
+
 # In[ ]:
 
 import os
@@ -225,14 +258,15 @@ print list_of_file_names
 # 
 # Using previous example, please create python dictionary 
 # that will contain information about file name and its size.
-# You can use /etc/ directory.
+# You can use /etc as source directory.
 # 
-# Hint 1: remember to check if file exists
-# Hint 2: use file name as dictionary key
+# - Hint 1: remember to check if file exists, `os.path.isfile(path_to_file)`
+# - Hint 2: use file path as dictionary key, ` files_size[file_path] = file_size`
+# - Hint 3: to create dictionary you can use list of tuples e.g: `dict( [ (key1, value), (key2, value), ...] )`
+# - Hint 4: to create path to file, you can concatenate dir path and file name, `os.path.join( directory, file_name )`
 # 
 # 
-# Your output should be similar to 'Output example':
-# Output example:
+# Your output should be similar to:
 # ```python
 # {
 #     '/etc/sane.d/stv680.conf': 178,
@@ -259,63 +293,36 @@ files_size = dict(list_of_files)
 print files_size
 
 
-# #### How to sort dictionaries
+# In[ ]:
+
+# SECOND SOLUTION
+
+import os
+files_size = {}
+for root, dirs, files in os.walk('/etc'):
+    for file in files:
+        path_to_file = os.path.join(root, file)
+        if os.path.isfile(path_to_file):
+            files_size[path_to_file] = os.path.getsize(path_to_file)
+
+print files_size
+
+
+# #### How to sort data structures
 
 # In[ ]:
 
-d = {'key1': 1, 'key2': 2, 'key3': 3}
+d = {'key2': 2, 'key1': 1, 'key3': 3}
+
+print sorted(d, key=d.get)
 
 for key in sorted(d, key=d.get):
     print key, d[key]
 
 
-# ### Exercise:
-# 
-# Sort dictionary from previous exercise by file size. 
-# Largest files should go first.
-# 
-# Hint: Boot sort and sorted method accept a reverse parameter with a boolean value. 
-# This is using to flag descending sorts.
-
 # In[ ]:
 
-# SOLUTION
-
-for key in sorted(files_size, key=files_size.get, reverse=True):
-    print key, files_size[key]
-
-
-# ### Exercise:
-# 
-# Create a function: get_files_size that will take two arguments: 
-# 
-# 1. `directory` - string, directory name, e.g.: /etc, by default use '/tmp' directory
-# 2. `reverse`   - boolean, if True use descending sorts, by default should be set as False
-# 
-# Function should return python dictionary that will contain information about file name and its size.
-# 
-# Please use solutions from previous exercises.
-# 
-# Example: how to invoke this function?
-# 
-# ```python
-# get_files_size('/etc/', reverse=True) 
-# ```
-# 
-# Additionally: try to execute this function as follows:
-# - ```print get_files_size()```
-# - ```print get_files_size('/etc')```
-# - ```print get_files_size('/etc', reverse=True)```
-# 
-# 
-# Hit: use OrderedDict
-# ```python
-# from collections import OrderedDict
-# ```
-# 
-# Hint: use itemgetter or lambda notation to get second element from tuple
-
-# In[ ]:
+# EXAMPLES
 
 list_of_tuples = [('file1', 100), ('testfile', 2), ('testfile', 3000), ('password', 450)]
 
@@ -332,6 +339,24 @@ print list_of_tuples
 # second approach
 list_of_tuples.sort(reverse=True, key=lambda item: item[1])
 print list_of_tuples
+
+
+# In[ ]:
+
+# To clarify conversion between dict and list of tuples
+
+d = {'key2': 2, 'key1': 1, 'key3': 3}  # Dictionary
+
+
+# How to convert dictionary to list of tuples
+
+list_of_tuples = d.items()  # List of tuples: [ (k1, v), (k2, v), (k3, v), ... (kn, v)]
+print list_of_tuples
+
+# How to convert list of tuples to dictionary
+
+d = dict(list_of_tuples)
+print d
 
 
 # #### Lamda expression
@@ -368,6 +393,54 @@ print list_of_tuples
 # - https://docs.python.org/2/reference/expressions.html
 # - https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
 
+# ### Exercise:
+# 
+# Sort dictionary from previous exercise by file size. 
+# Largest files should go first.
+# 
+# - Hint 1: Boot sort and sorted method accept a reverse parameter with a boolean value. 
+# This is using to flag descending sorts.
+# 
+# `d.sort(reverse=True)`
+
+# In[ ]:
+
+# SOLUTION
+
+for key in sorted(files_size, key=files_size.get, reverse=True):
+    print key, files_size[key]
+
+
+# ### Exercise:
+# 
+# Create a function: get_files_size that will take two arguments: 
+# 
+# 1. `directory` - string, directory name, e.g.: /etc, by default use '/tmp' directory
+# 2. `reverse`   - boolean, if True use descending sorts, by default should be set as False
+# 
+# Function should return python dictionary that will contain information about file name and its size.
+# 
+# Please use solutions from previous exercises.
+# 
+# Example: how to invoke this function?
+# 
+# ```python
+# get_files_size('/etc/', reverse=True) 
+# ```
+# 
+# Additionally: try to execute this function as follows:
+# - ```print get_files_size()```
+# - ```print get_files_size('/etc')```
+# - ```print get_files_size('/etc', reverse=True)```
+# 
+# 
+# Hit 1: use OrderedDict
+# ```python
+# from collections import OrderedDict
+# ```
+# 
+# Hint 2: use itemgetter or lambda notation to get second element from tuple
+
 # In[ ]:
 
 # SOLUTION
@@ -386,7 +459,27 @@ def get_files_size(directory='/tmp', reverse=False):
     
     return OrderedDict(sorted(list_of_files, key=itemgetter(1), reverse=reverse))
             
+print get_files_size('/etc')
 
+
+# In[ ]:
+
+# SECOND SOLUTION
+
+import os
+from collections import OrderedDict
+from operator import itemgetter
+
+def get_files_size(directory='/tmp', reverse=False):
+    files_size = {}
+    for root, dirs, files in os.walk('/etc'):
+        for file in files:
+            path_to_file = os.path.join(root, file)
+            if os.path.isfile(path_to_file):
+                files_size[path_to_file] = os.path.getsize(path_to_file)
+    
+    return OrderedDict(sorted(files_size.items(), key=itemgetter(1), reverse=reverse))
+            
 print get_files_size('/etc')
 
 
@@ -461,10 +554,31 @@ print "verbose:   ", args.verbose
 #     
 # ```
 
+# In[ ]:
+
+def do_something(directory, verbose):
+    print "directory: ", directory
+    print "verbose:   ", verbose
+    
+
+if __name__ == "__main__":
+
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Script to list out files from given directory')
+
+    parser.add_argument('--directory', '-d', required=True, help='Source directory')
+    parser.add_argument('--verbose', '-v', action='store_true', help='If set, print more details')
+
+    args = parser.parse_args()
+
+    do_something(directory=args.directory, verbose=args.verbose)
+
+
 # ### Exercise:
 # 
 # Using previous exercises create a script that will ask user to provide directory name and sorting order.
-# and list out each file from provided directory and its size.
+# List out each file from provided directory and its size.
 # 
 # You can use function get_files_size.
 # 
@@ -486,14 +600,14 @@ from collections import OrderedDict
 from operator import itemgetter
 
 def get_files_size(directory='/tmp', reverse=False):
-    list_of_files = []
-    for root, dirs, files in os.walk(directory):
+    files_size = {}
+    for root, dirs, files in os.walk('/etc'):
         for file in files:
             path_to_file = os.path.join(root, file)
             if os.path.isfile(path_to_file):
-                list_of_files.append((path_to_file, os.path.getsize(path_to_file)))
+                files_size[path_to_file] = os.path.getsize(path_to_file)
     
-    return OrderedDict(sorted(list_of_files, key=itemgetter(1), reverse=reverse))
+    return OrderedDict(sorted(files_size.items(), key=itemgetter(1), reverse=reverse))
             
 
 if __name__ == '__main__':
@@ -520,18 +634,58 @@ if __name__ == '__main__':
 # 
 # where `<TIMESTAMP>` is the current unix timestamp (seconds since Jan 01 1970. (UTC))
 # 
-# Hint:
+# Hint 1:
 # To get unix timestamp:
 # ```python
 # import time
 # timestamp = int(time.time())
 # ```
 # 
+# Hint 2: You can write your own function to write output to file
 # 
 # Input arguments:
 # 1. `directory` - string, directory name, e.g.: /etc, by default use '/tmp' directory
 # 2. `reverse`   - boolean, if True use descending sorts, by default should be set as False
 # 3. `file_path` - string, specifies the path of output file on disk
+
+# In[ ]:
+
+# How to write to file
+
+f = open('/tmp/file', 'w')
+
+f.write('first line\n')
+f.write('second line\n')
+f.write('third line\n')
+
+f.close()
+
+
+# In[ ]:
+
+# How to write to file
+
+with open('/tmp/file', 'w') as f:
+
+    f.write('first line\n')
+    f.write('second line\n')
+    f.write('third line\n')
+
+
+# In[ ]:
+
+list_of_lines = ['line1', 'line2', 'line3']
+
+with open('/tmp/file', 'w') as f:
+    for line in lines:
+        f.write("{} \n".format(line))
+
+# or even better
+
+list_of_lines = ["{} \n".format(line) for line in list_of_lines]
+with open('/tmp/file', 'w') as f:
+    f.writelines(list_of_lines)
+
 
 # In[ ]:
 
@@ -549,14 +703,14 @@ from collections import OrderedDict
 from operator import itemgetter
 
 def get_files_size(directory='/tmp', reverse=False):
-    list_of_files = []
-    for root, dirs, files in os.walk(directory):
+    files_size = {}
+    for root, dirs, files in os.walk('/etc'):
         for file in files:
             path_to_file = os.path.join(root, file)
             if os.path.isfile(path_to_file):
-                list_of_files.append((path_to_file, os.path.getsize(path_to_file)))
-
-    return OrderedDict(sorted(list_of_files, key=itemgetter(1), reverse=reverse))
+                files_size[path_to_file] = os.path.getsize(path_to_file)
+    
+    return OrderedDict(sorted(files_size.items(), key=itemgetter(1), reverse=reverse))
 
 def get_timestamp():
     return int(time.time())
@@ -572,6 +726,7 @@ def write_to_file(file_path, dict_to_write):
     except IOError as exc:
         print "Cannot write output to file, ", exc
         sys.exit(1)
+        
 
 if __name__ == '__main__':
     import argparse
@@ -712,7 +867,7 @@ print "Timestamp: ", data['milliseconds_since_epoch']
 print "Time: ", data['time']
 
 
-# In[36]:
+# In[ ]:
 
 import requests
 
@@ -774,12 +929,55 @@ for link in links:
         print os.path.join(url, link['href'])
 
 
+# #### The ElementTree XML API
+# 
+# https://docs.python.org/2/library/xml.etree.elementtree.html
+
 # In[ ]:
 
-
+country_data = """<?xml version="1.0"?>
+<data>
+    <country name="Liechtenstein">
+        <rank>1</rank>
+        <year>2008</year>
+        <gdppc>141100</gdppc>
+        <neighbor name="Austria" direction="E"/>
+        <neighbor name="Switzerland" direction="W"/>
+    </country>
+    <country name="Singapore">
+        <rank>4</rank>
+        <year>2011</year>
+        <gdppc>59900</gdppc>
+        <neighbor name="Malaysia" direction="N"/>
+    </country>
+    <country name="Panama">
+        <rank>68</rank>
+        <year>2011</year>
+        <gdppc>13600</gdppc>
+        <neighbor name="Costa Rica" direction="W"/>
+        <neighbor name="Colombia" direction="E"/>
+    </country>
+</data>
+"""
 
 
 # In[ ]:
 
+import xml.etree.ElementTree as ET
 
+# if you want to read XML data from file
+#tree = ET.parse('country_data.xml')
+#root = tree.getroot()
+
+root = ET.fromstring(country_data)
+
+countries = root.findall('country')
+for country in countries:
+    print "Country: ", country.get('name')
+    
+    country_neighbours = country.findall('neighbor')
+    for neighbor in country_neighbours:
+        print "Neigbor: ", neighbor.get('name')
+        
+    print "-" * 30
 
