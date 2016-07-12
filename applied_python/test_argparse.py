@@ -9,3 +9,6 @@ args = parser.parse_args()
 
 print "directory: ", args.directory
 print "verbose:   ", args.verbose
+
+if args.verbose:
+    print "Verbose is set"
