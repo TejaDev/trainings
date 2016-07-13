@@ -1,0 +1,190 @@
+##  What is the value of the following  expressions:
+
+2 + 2
+2 + 2.0
+4 / 2
+4 // 2
+4 / 3
+4 / 3.0
+4 // 3
+2 / 0
+
+2 * (3 + 4)
+2 * 3 + 4
+
+"2" + "2"
+"2" * 2
+"Hello" + "World"
+
+ 
+## How to find a number’s square root, as well as its square (power of number)?
+
+HINT:
+import math
+help(math)
+
+##  What is the type of the result of the expression 1 + 2.0 + 3
+
+HINT: help(type)
+
+
+## Try to display current year 2016 as octal, hexadecimal and binary number
+
+HINT: 
+help(oct)
+help(hex)
+help(bin)
+
+## How might you convert an octal, hexadecimal, or binary string to a plain integer?
+Using previous exercise, convert oct, hex, bin number to integer (current year)
+
+HINT:
+help(int)
+
+## [Str] How many characters are there in the string "a\nb\x1f\00d"
+
+## [Str] Print first and last word from this sentce: "Hello new better Pythonic World"
+You should receive: "Hello World" string.
+
+## [Str] How many 'e' letter contains this string: "Hello new better Pythonic World"
+
+HINT: help(string)
+
+## [Str, If, For] You have a string of numbers separated by comma: "1,2,3,4,5,6,7,8,9,10".
+Your task is to print only even numbers.
+
+HINT: even number is an integer which is "evenly divisible" by two, so: 2, 4, 6, ..
+
+
+## [Str, If, For]
+You have got list of files: ['file1.py', 'file2.txt', 'file3.py', 'file4.doc', 'file5.c']
+Print only python files (*.py)
+
+HINT: help(string)
+
+## [Str, If, For]
+You are given a chunk of text. Gather all capital letters in one word in
+the order that they appear in the text.
+For example: text = "How are you? Eh, ok. Low or Lower? Ohhh.",
+if we collect all of the capital letters, we get the message "HELLO".
+
+Examples:
+"How are you? Eh, ok. Low or Lower? Ohhh." == "HELLO"
+HELLO WORLD!!!" == "HELLOWORLD"
+
+HINT: help(string)
+
+## [If, User input]
+
+Write a program that asks the user to provide numbers.
+If total sum of all provided number is higher than 100 you can stop program.
+
+You can write two versions of this program: in interactive mode or in script mode.
+
+
+## [List, For]
+Create following lists:
+
+- List A: numbers from 0 to 100, hint: help(range)
+- List B: only even numbers from list A
+- List C: numbers from list A sorted in descent order
+- List D: all numbers from list B should be squared (number ^ 2)
+- List E: only numbers from 20 to 60 from list A
+- List F: only numbers from 100 to 70 from list A (reverse order)
+- List G: sum of list E and F
+- List H: list G plus number 1000 (append number 1000 only to list H)
+- List I: copy of list H
+- List J: from list H remove smallest number
+- List K: list H extended with list ['A', 'B', 'C']
+
+Create following variables:
+- v1: sum of numbers from list B
+- v2: maximum number from list H
+- v3: minimum number from list H
+- v4: average number from list G
+
+
+## [Dynamic typing] What is the value of A?
+
+First case:
+A = "Hello World"
+B = A
+B = "Hello new better world"
+
+Second case:
+A = [1, 2, 3]
+B = A
+B.append(4)
+
+Third case:
+A = [1, 2, 3]
+B = A[:]
+B.append(4)
+
+## [Dict]
+
+Given the following dictionary:
+
+Bulbasaur = {'CP': 100, 'HP': 20 }
+Rattata = {'CP': 30, 'HP': 10}
+Pikachu = {'CP': 120, 'HP': 120}
+
+pokeball = {
+    'pokemons_count': 3,
+    'pokemons': {
+        'Bulbasaur': Bulbasaur,                                                                                                              
+        'Rattata': Rattata, 
+        'Pikachu': Pikachu,
+    },
+    'points': 100
+}
+
+# List all pokemnons' names from pokeball
+# Remove Rattata from pokeball
+# Create new Raichu pokemon with stats: CP = 150, HP = 160
+# Add new Raichu pokemon to pokeball
+# Update pokemons count in pokeball
+# Update Pikachu CP to 149
+# Find pokemon with highest CP parameter
+# Sort pokemons in pokeball by CP
+# Update points in pokeball, points it is just sum of all CP parameters divide by pokemons count
+
+## [If, def] Write simple algorithm to solve classic fizz buzz problem:
+Print: "Fizz Buzz" if the number is divisible by 3 and by 5;
+Print: "Fizz" if the number is divisible by 3;
+Print: "Buzz" if the number is divisible by 5;
+
+## [If, for, def]
+You are given an array of integers. You should find the sum of the elements
+with even indexes (0th, 2nd, 4th...) then multiply this summed number and
+the final element of the array together. Don't forget that the first element
+has an index of 0. For an empty array, the result will always be 0 (zero).
+
+Examples:
+[0, 1, 2, 3, 4, 5] == 30, "(0+2+4)*5=30"
+[1, 3, 5] == 30, "(1+5)*5=30"
+[6] == 36, "(6)*6=36"
+[] == 0, "empty array"
+
+## [Files]
+
+Crete random.dat file - to file insert random string of size 512 characters                                                                       
+
+2. from random.dat file read:
+- all NUMBERS to list NUMBERS_LIST
+- all LETTERS to list LETTERS_LIST
+
+3. create unique_data.dat file that will contain unique data from random.dat file
+- unique means without repetition (order does not matter), for example:
+
+random.dat ----
+AbbA1100234
+-----
+unique_data.dat ---
+Ab10234
+---
+
+HINTS:
+To generate random string you can use:
+import random, string
+rs = "".join([random.choice(string.ascii_uppercase + string.digits) for i in range(512)])

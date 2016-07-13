@@ -210,12 +210,11 @@ def exc_files():
 
     LETTERS_LIST = []
     NUMBERS_LIST = []
-    for line in content:
-        for char in line:
-            if char in list(string.ascii_letters):
-                LETTERS_LIST.append(char)
-            if char in list(string.digits):
-                NUMBERS_LIST.append(char)
+    for char in line:
+        if char in list(string.ascii_letters):
+            LETTERS_LIST.append(char)
+        if char in list(string.digits):
+            NUMBERS_LIST.append(char)
 
     print(LETTERS_LIST)
     print(NUMBERS_LIST)
