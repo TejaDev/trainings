@@ -2,6 +2,9 @@
 
 2 + 2
 2 + 2.0
+0.1 + 0.4
+0.1 + 0.3
+
 4 / 2
 4 // 2
 4 / 3
@@ -23,10 +26,16 @@ HINT:
 import math
 help(math)
 
+SOLUTION:
+import math
+math.pow(2,2)
+math.sqrt(9)
+
 ##  What is the type of the result of the expression 1 + 2.0 + 3
 
 HINT: help(type)
 
+SOLUTION: type(1 + 2.0 + 3)
 
 ## Try to display current year 2016 as octal, hexadecimal and binary number
 
@@ -35,25 +44,54 @@ help(oct)
 help(hex)
 help(bin)
 
+SOLUTION:
+oct(2016)
+hex(2016)
+bin(2016)
+
 ## How might you convert an octal, hexadecimal, or binary string to a plain integer?
 Using previous exercise, convert oct, hex, bin number to integer (current year)
 
 HINT:
 help(int)
 
+SOLUTION:
+int('0x7e0', 16) # from hex
+int('03740', 8)  # from oct
+int('0b11111100000', 2)  # from bin
+
+
 ## [Str] How many characters are there in the string "a\nb\x1f\00d"
+
+SOLUTION:
+len("a\nb\x1f\00d")
 
 ## [Str] Print first and last word from this sentce: "Hello new better Pythonic World"
 You should receive: "Hello World" string.
+
+SOLUTION:
+str = "Hello new better Pythonic World"
+str[0:5] + " " + str[26:]
+str[0:5] + " " + str[-5:]
+
 
 ## [Str] How many 'e' letter contains this string: "Hello new better Pythonic World"
 
 HINT: help(string)
 
+SOLUTION:
+"Hello new better Pythonic World".count(e)
+
 ## [Str, If, For] You have a string of numbers separated by comma: "1,2,3,4,5,6,7,8,9,10".
 Your task is to print only even numbers.
 
 HINT: even number is an integer which is "evenly divisible" by two, so: 2, 4, 6, ..
+
+SOLUTION:
+numbers = "1,2,3,4,5,6,7,8,9,10"
+for number in numbers.split(','):
+	if number % 2 == 0:
+		print number
 
 
 ## [Str, If, For]
@@ -61,6 +99,15 @@ You have got list of files: ['file1.py', 'file2.txt', 'file3.py', 'file4.doc', '
 Print only python files (*.py)
 
 HINT: help(string)
+
+SOLUTION:
+
+files = ['file1.py', 'file2.txt', 'file3.py', 'file4.doc', 'file5.c']
+for file in files:
+	if file.endswith('.py'):
+		print file
+
+
 
 ## [Str, If, For]
 You are given a chunk of text. Gather all capital letters in one word in
@@ -74,12 +121,28 @@ HELLO WORLD!!!" == "HELLOWORLD"
 
 HINT: help(string)
 
+SOLUTION:
+
+text = "How are you? Eh, ok. Low or Lower? Ohhh."
+print "".join([letter for letter in text if letter.isupper()])
+
+
 ## [If, User input]
 
 Write a program that asks the user to provide numbers.
 If total sum of all provided number is higher than 100 you can stop program.
 
 You can write two versions of this program: in interactive mode or in script mode.
+
+SOLUTION:
+
+sum = 0
+while True:
+	number = input('Please provide number: ')
+	sum += number
+	if sum >= 100:
+		break
+
 
 
 ## [List, For]
@@ -88,7 +151,7 @@ Create following lists:
 - List A: numbers from 0 to 100, hint: help(range)
 - List B: only even numbers from list A
 - List C: numbers from list A sorted in descent order
-- List D: all numbers from list B should be squared (number ^ 2)
+- List D: all numbers from list B should be squared (number ** 2)
 - List E: only numbers from 20 to 60 from list A
 - List F: only numbers from 100 to 70 from list A (reverse order)
 - List G: sum of list E and F
@@ -102,6 +165,80 @@ Create following variables:
 - v2: maximum number from list H
 - v3: minimum number from list H
 - v4: average number from list G
+
+SOLUTION:
+
+ #List A: numbers from 0 to 100, hint: help(range)
+    A = list(range(0, 101))
+
+    #List B: only even numbers from list A
+    #B = list(range(0, 101, 2))
+    B = [number for number in range(0, 101) if number % 2 == 0]
+
+    B1 = []
+    for number in range(0, 101):
+        if number % 2 == 0:
+            B1.append(number)
+
+
+    #List C: numbers from list A sorted in descending order
+    C = sorted(B, reverse=True)
+
+    #List D: all numbers from list B should be squared (number ** 2)
+    D = [pow(number, 2) for number in B]
+
+    D1 = []
+    for number in B:
+      D1.append(number ** 2)
+
+    #List E: only numbers from 20 to 60 from list A
+    E = A[20:60]
+
+    #List F: only numbers from 100 to 70 from list A
+    F = list(reversed(A[70:101]))
+    #F = A[100:70:-1]
+
+    #List G: sum of list E and F
+    G = E + F
+
+    #List H: list G plus number 1000
+    H = G[:]
+    H.append(1000)
+
+    #List I: copy of list H
+    I = H[:]
+
+    #List J: from list H remove smallest number
+    J = H[:]
+    J.remove(min(J))
+
+    #List K: list H extended with list ['A', 'B', 'C']
+    K = H[:]
+    K.extend(['A', 'B', 'C'])
+
+    print(A)
+    print(B)
+    print(C)
+    print(D)
+    print(E)
+    print(F)
+    print(G)
+    print(H)
+    print(I)
+    print(J)
+    print(K)
+
+    # v1: sum of numbers from list B
+
+    v1 = sum(B)
+    print(v1)
+    # v2: maximum number from list H
+	max(H)
+    # v3: minimum number from list H
+	min(H)
+    # v4: average number from list G
+    print(sum(G)/len(G))
+
 
 
 ## [Dynamic typing] What is the value of A?
@@ -149,10 +286,73 @@ pokeball = {
 # Sort pokemons in pokeball by CP
 # Update points in pokeball, points it is just sum of all CP parameters divide by pokemons count
 
+SOLUTION:
+Bulbasaur = {'CP': 100, 'HP': 20 }
+Rattata = {'CP': 30, 'HP': 10} 
+Pikachu = {'CP': 120, 'HP': 120}
+Raichu = {'CP': 150, 'HP':160}
+
+pokeball = {
+    'pokemons_count': 3,
+    'pokemons': {
+        'Bulbasaur': Bulbasaur, 
+        'Rattata': Rattata, 
+        'Pikachu': Pikachu,
+        'Raichu': Raichu,
+    },
+    'points': 100, 
+}
+
+print(pokeball)
+# list all pokemons' names
+print(pokeball['pokemons'].keys())
+
+# remove ratta
+pokeball['pokemons'].pop('Rattata')
+print(pokeball)
+
+# Create new Raichu pokemon with stats: CP = 150, HP = 160
+print(pokeball)
+
+# Find pokemon with highest CP parameter
+# first basic solution, not pythonic
+curr_max_cp = 0
+pokemon_max_cp = None
+for pokemon, stats in pokeball['pokemons'].items():
+    if stats['CP'] > curr_max_cp:
+        curr_max_cp = stats['CP']
+        pokemon_max_cp = pokemon
+print(pokemon_max_cp)
+
+# second solution, pythonic way
+from operator import itemgetter
+print(max(pokeball['pokemons'].iteritems(), key=lambda (k,v): itemgetter('CP')(v)))
+
+# Update points in pokeball, points it is just sum of all CP parameters divide by pokemons count
+
+points = 0
+for pokemon, stats in pokeball['pokemons'].items():
+    points += stats['CP']
+
+pokeball['points'] = points/len(pokeball['pokemons'])
+print(points)
+print(pokeball)
+
 ## [If, def] Write simple algorithm to solve classic fizz buzz problem:
 Print: "Fizz Buzz" if the number is divisible by 3 and by 5;
 Print: "Fizz" if the number is divisible by 3;
 Print: "Buzz" if the number is divisible by 5;
+
+
+SOLUTION:
+
+if number % 5 == 0 and number % 3 == 0:
+        return "Fizz Buzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    return str(number)
 
 ## [If, for, def]
 You are given an array of integers. You should find the sum of the elements
@@ -165,6 +365,11 @@ Examples:
 [1, 3, 5] == 30, "(1+5)*5=30"
 [6] == 36, "(6)*6=36"
 [] == 0, "empty array"
+
+
+SOLUTION:
+array = [0, 1, 2, 3, 4, 5]
+print sum([item for item in array[::2]]) *  array[-1] if array else 0
 
 ## [Files]
 
@@ -188,3 +393,156 @@ HINTS:
 To generate random string you can use:
 import random, string
 rs = "".join([random.choice(string.ascii_uppercase + string.digits) for i in range(512)])
+
+
+SOLUTION:
+import random, string
+# 1. create random.dat file - to file insert random string of size 512 characters
+f = open('random.dat', 'w')
+#with open('random.dat', 'w') as f:
+f.write("".join([random.choice(string.ascii_uppercase + string.digits) for i in range(512)]))
+# Classes
+
+1. Create class PremierLeagueClub with following attributes: postion, club, played, won, drawn, lost, points
+2. class should have following methods:
+    - get_points() - to recalculate points use formula (won * 3 + drawn)
+	- get_games_played() - use formula (won + drawn + lost)
+	- get_magic_formula() should return played multiplyed by points, e.g: (played * points)
+	- get_info() - should return string with all club information joined by '-' e.g: "1 - Leicester City - 25 - 15 - 8 - 2 - 53"
+	- set_won_game() - should update played, won and points - 
+	- set_lost_game() - should update played, lost
+
+3. You should be able to sort PremierLeague objects by magic_fomula score
+
+
+Example
+
+arsenal = PremierLeagueClub(postion=3, club="Arsenal", won=14, drawn=6, lost=5)
+arsenal.get_games_played() # should return 25
+arsenal.get_points()       # should return 48
+
+arsenal.set_lost_game()
+
+arsenal.get_games_played() # should return 26
+arsenal.get_points()       # should return 48
+
+
+arsenal.set_won_game()
+
+arsenal.get_games_played() # should return 27
+arsenal.get_points()       # should return 51
+
+
+	
+	
+with open('random.dat', 'r') as f:
+    content = f.read()
+
+LETTERS_LIST = []
+NUMBERS_LIST = []
+for char in line:
+    if char in list(string.ascii_letters):
+        LETTERS_LIST.append(char)
+    if char in list(string.digits):
+        NUMBERS_LIST.append(char)
+
+print(LETTERS_LIST)
+print(NUMBERS_LIST)
+
+# create unique_data.dat file that will contain unique data from random.dat file
+
+with open('unique.dat', 'w') as f:
+    f.write(''.join(set(sorted(content))))
+
+
+#### Classes
+
+1. Create class PremierLeagueClub with following attributes: postion, club, played, won, drawn, lost, points
+2. class should have following methods:
+    - get_points() - to recalculate points use formula (won * 3 + drawn)
+	- get_games_played() - use formula (won + drawn + lost)
+	- get_magic_formula() should return played multiplyed by points, e.g: (played * points)
+	- get_info() - should return string with all club information joined by '-' e.g: "1 - Leicester City - 25 - 15 - 8 - 2 - 53"
+	- set_won_game() - should update played, won and points - 
+	- set_lost_game() - should update played, lost
+
+3. You should be able to sort PremierLeague objects by magic_fomula score
+
+
+Example
+
+arsenal = PremierLeagueClub(postion=3, club="Arsenal", won=14, drawn=6, lost=5)
+arsenal.get_games_played() # should return 25
+arsenal.get_points()       # should return 48
+
+arsenal.set_lost_game()
+
+arsenal.get_games_played() # should return 26
+arsenal.get_points()       # should return 48
+
+
+arsenal.set_won_game()
+
+arsenal.get_games_played() # should return 27
+arsenal.get_points()       # should return 51
+
+SOLUTION:
+
+class PremierLeagueClub(object):
+
+    def __init__(self, position, club, won, drawn, lost):
+        self.position = position
+        self.club = club
+        self.__won = won
+        self.drawn = drawn
+        self.lost = lost
+        self.played = self.won + self.drawn + self.lost
+        self.points = self.won * 3 + self.drawn
+
+    def get_points(self):
+        self.points = self.won * 3 + self.drawn
+        return self.points
+
+    def get_games_played(self):
+        return self.won + self.drawn + self.lost
+
+    def get_magic_formula(self):
+        #played = self.get_games_played()
+        return self.points * self.played
+
+    def get_info(self):
+        to_print = "{o.position}- {o.club} - {o.played} - {o.won} - {o.drawn} - {o.lost} - {o.points}"
+        return to_print.format(o=self)
+
+    def set_won_game(self, number_of_won_games=1):
+        self.played = self.played + number_of_won_games
+        self.won = self.won + number_of_won_games
+        self.points = self.points  + number_of_won_games * 3
+
+    def set_lost_game(self, number_of_lost_games=1):
+        self.played = self.played + number_of_lost_games
+        self.lost = self.lost + number_of_lost_games
+
+    def __eq__(self, other):
+        return self.get_magic_formula() == other.get_magic_formula()
+
+    def __lt__(self,other):
+         return self.get_magic_formula() < other.get_magic_formula()
+
+    def __gt__(self,other):
+         return self.get_magic_formula() > other.get_magic_formula()
+
+
+    def __str__(self):
+        """
+        it will print "3 - Arsenal - 27 - 15 - 6 - 6 - 51" for example
+        :return:
+        """
+        return self.get_info()
+
+
+
+
+	
+	
+

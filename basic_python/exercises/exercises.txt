@@ -3,6 +3,8 @@
 2 + 2
 2 + 2.0
 2 - 2
+0.1 + 0.4
+0.1 + 0.3
 
 4/2
 4/3
@@ -59,7 +61,7 @@ Create following lists:
 - List A: numbers from 0 to 100, hint: help(range)
 - List B: only even numbers from list A
 - List C: numbers from list A sorted in descent order
-- List D: all numbers from list B should be squared (number ^ 2)
+- List D: all numbers from list B should be squared (number ** 2)
 - List E: only numbers from 20 to 60 from list A
 - List F: only numbers from 100 to 70 from list A (reverse order)
 - List G: sum of list E and F
