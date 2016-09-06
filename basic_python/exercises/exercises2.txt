@@ -63,35 +63,32 @@ int('0b11111100000', 2)  # from bin
 
 ## [Str] How many characters are there in the string "a\nb\x1f\00d"
 
-SOLUTION:
-len("a\nb\x1f\00d")
+HINT use python 2.7:
+import string
+help(string)
+
 
 ## [Str] Print first and last word from this sentce: "Hello new better Pythonic World"
 You should receive: "Hello World" string.
 
 SOLUTION:
-str = "Hello new better Pythonic World"
-str[0:5] + " " + str[26:]
-str[0:5] + " " + str[-5:]
+
 
 
 ## [Str] How many 'e' letter contains this string: "Hello new better Pythonic World"
 
-HINT: help(string)
+HINT: import string; help(string)
 
 SOLUTION:
-"Hello new better Pythonic World".count(e)
+
 
 ## [Str, If, For] You have a string of numbers separated by comma: "1,2,3,4,5,6,7,8,9,10".
 Your task is to print only even numbers.
-
+HINT: you can convert string to integer using int() method, help(int)
 HINT: even number is an integer which is "evenly divisible" by two, so: 2, 4, 6, ..
 
 SOLUTION:
-numbers = "1,2,3,4,5,6,7,8,9,10"
-for number in numbers.split(','):
-	if number % 2 == 0:
-		print number
+
 
 
 ## [Str, If, For]
@@ -150,7 +147,7 @@ Create following lists:
 
 - List A: numbers from 0 to 100, hint: help(range)
 - List B: only even numbers from list A
-- List C: numbers from list A sorted in descent order
+- List C: numbers from list A sorted in descending order
 - List D: all numbers from list B should be squared (number ** 2)
 - List E: only numbers from 20 to 60 from list A
 - List F: only numbers from 100 to 70 from list A (reverse order)
