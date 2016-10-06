@@ -7,35 +7,67 @@
 # 
 # https://docs.python.org/2/library/
 
-# In[ ]:
+# In[2]:
 
-import datetime                                                                                     
+import datetime
+#from datetime import date
+
+print(datetime.date.today())
 
 day_today = datetime.date.today().strftime("%A")
-print "Today is {day}".format(day=day_today)
+print("Today is {day}".format(day=day_today))
+print("Today is {}".format(day_today))
 
 
-# In[ ]:
+# In[3]:
 
 # IF/ELSE 
 
+print("Monday" == "Friday")
+
+bool_value = True
+print("here", bool_value is not False)
+
 if day_today == "Friday":
-    print "Today is Friday!!"
+    print("Today is Friday!!")
 else:
-    print "Today is {day}".format(day=day_today)
+    print("Today is {day}".format(day=day_today))
+    
+l = [1,2,3] 
+if len(l) > 0: # NOT PYTHONIC WAY
+    print("-------> ok")
+
+print(bool(l))
+print(bool({}))
+if l:          # PYTHONIC WAY
+    print("ok")
 
 
-# In[ ]:
+# In[15]:
 
 # IN operator
 
-if day_today in ['Saturday', 'Sunday']:
-    print "Today is {day}! Hurray! The weekend has landed!".format(day=day_today)
+month_today = datetime.date.today().strftime("%B")
+print(month_today)
+
+month_today = "May"
+
+day_today = "Saturday"
+# not Pythonic
+if day_today == "Saturday" or day_today == "Sunday":
+    if month_today == "June":
+        print("Today is {day}! Hurray! The weekend has landed!".format(day=day_today))
 else:
-    print "Nope. It is't weeked. Today is {day}".format(day=day_today)
+    print("Nope. It isn't weeked. Today is {day}".format(day=day_today))
+    
+# Pythonic
+if day_today in ['Saturday', 'Sunday']:
+    print("Today is {day}! Hurray! The weekend has landed!".format(day=day_today))
+else:
+    print("Nope. It isn't weeked. Today is {day}".format(day=day_today))
 
 
-# In[ ]:
+# In[23]:
 
 # FOOR LOOP
 
@@ -43,7 +75,19 @@ else:
 
 numbers = [1, 2, 3, 4, 5, 6, 7]
 for number in numbers:
-    print number * 2
+    print(number * 2)
+    
+print([(number, number * 2) for number in numbers])
+
+L_TEMP = []
+for number in numbers:
+    if number % 2 == 0:
+        L_TEMP.append(number * number)
+print(L_TEMP)
+
+# LIST COMPREHENSION (with filter)
+L_TEMP = [number * number for number in numbers if number % 2 == 0] # VERY PYTHONIC
+print(L_TEMP)
 
 
 # In[ ]:
@@ -53,43 +97,48 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 for number in numbers:
     if number % 2 == 0:
-        print "Number {} is even".format(number)
+        print("Number {} is even".format(number))
     elif number % 2 == 1:
-        print "Number {} is odd".format(number)
+        print("Number {} is odd".format(number))
     else:
-        print "is it number: {}?".format(number)
+        print("is it number: {}?".format(number))
 
 
 # In[ ]:
 
-# List comprehension
+# List comprehension - Pythonic way of doing stmh
 
 # modulo (%) operation finds the remainder after division of one number by another
 
 # Even numbers always end with a digit of 0, 2, 4, 6 or 8
 even_numbers = [number for number in range(1,11) if number % 2 == 0]
-print "Even numbers: ", even_numbers
+print("Even numbers: ", even_numbers)
 
 # Odd numbers always end with a digit of 1, 3, 5, 7, or 9
 odd_numbers = [number for number in range(1,11) if number % 2 == 1]
-print "Odd numbers:", odd_numbers
+print("Odd numbers:", odd_numbers)
 
 
-# In[ ]:
+# In[25]:
 
 # SETS
 
-numbers = range(1, 30)
+s = set([1, 2, 3, 2 ,4, 5, 5])
+print("s: ", s)
+
+numbers = range(1, 11)
 even_numbers = [number for number in range(1,11) if number % 2 == 0]
 
 even_numbers = set(even_numbers)
+print(even_numbers)
 numbers = set(numbers)
+print(numbers)
 
 # difference (-) -> new set with elements in numbers but not in even_numbers
 # so we can get odd_numbers
 
 odd_numbers = list(numbers - even_numbers)
-print "Odd numbers: ", odd_numbers
+print("Odd numbers: ", odd_numbers)
 
 
 # In[ ]:
@@ -99,11 +148,11 @@ print "Odd numbers: ", odd_numbers
 while True:
     number = input("Please provide number: ")
     if number % 2 == 0:
-        print "Number {} is even".format(number)
+        print("Number {} is even".format(number))
     elif number % 2 == 1:
-        print "Number {} is odd".format(number)
+        print("Number {} is odd".format(number))
     else:
-        print "is it number: {}?".format(number)
+        print("is it number: {}?".format(number))
     break
 
 
@@ -113,13 +162,14 @@ while True:
 
 def is_number_even(number):
     if number % 2 == 0:
-        print "Number {} is even".format(number)
+        print("Number {} is even".format(number))
         return True
     elif number % 2 == 1:
-        print "Number {} is odd".format(number)
+        print("Number {} is odd".format(number))
     else:
-        print "is it number: {}?".format(number)
+        print("is it number: {}?".format(number))
     return False
+
 
 while True:
     number = input("Please provide number: ")
@@ -131,15 +181,20 @@ while True:
 
 # TRY/EXCEPT
 
-while True:
+def fn():
     number = input("Please provide number: ")
     try:
         number = int(number)
+        print(number)
     except ValueError as exc:
-        print "Do we have number or not?"
-        break
-    is_number_even(number)
-    break
+        print("Do we have number or not?)
+    
+    try:
+        is_number_even(number)
+    except Exception as exc:
+        print(exc)
+    
+fn()
 
 
 # In[ ]:
@@ -173,9 +228,12 @@ number2 = raw_input("Provide second number: ")
 number1 = int(number1)
 number2 = int(number2)
 
-print "You will {action} two numbers {number1} and {number2}".format(**locals())
+print("You will {action} two numbers {number1} and {number2}".format(**locals()))
+
 result = actions[action](number1, number2)
-print "Result is: ", result
+#result = actions.get(action)(number1, number2)
+
+print("Result is: ", result)
 
 
 # In[ ]:
@@ -197,61 +255,107 @@ class SimpleCalc(object):
     def divide(self):
         return self.n1 / self.n2
 
+
+action = raw_input("Choose one action [add|multiply|subtract|divide|]:")
+number1 = raw_input("Provide first number: ")
+number2 = raw_input("Provide second number: ")
+
+# convert to int
+number1 = int(number1)
+number2 = int(number2)
+
 simple_calc = SimpleCalc(number1, number2)
+
 action = getattr(simple_calc, action)
 result = action()
-print result
+print(result)
 
 
 # ## Let's practice
 
-# In[ ]:
+# In[26]:
 
 import os
-os.listdir('/tmp')
+list_of_dirs = os.listdir('/tmp')
+
+print(list_of_dirs)
+
+for file_or_dir in list_of_dirs:
+    if os.path.isfile("/tmp/" + file_or_dir):
+        print("File: ", file_or_dir)
+    elif os.path.isdir("/tmp/" + file_or_dir):
+        print("Directory: ", file_or_dir)        
 
 
 # https://docs.python.org/2/library/os.path.html
 
-# In[ ]:
+# In[29]:
 
 import os
 
 file = '/etc/passwd'
 
-print os.path.isfile(file)
-print os.path.isdir(file)
-print os.path.exists(file)
-print os.path.dirname(file)
+print(os.path.isfile(file))
+print(os.path.isdir(file))
+print(os.path.exists(file))
+print(os.path.dirname(file))
 
-print "/tmp" + "/dir1" + "/dir2" + '/file'
-print os.path.join('/tmp', 'dir1', 'dir2', 'file')
+print("/tmp" + "/dir1" + "/dir2" + '/file')
+print(os.path.join('/tmp', 'dir1', 'dir2', 'file'))
+
+print(os.sep) 
+
+
+# In[28]:
+
+for root, dirs, files in os.walk('/tmp/'):
+    print(root, dirs, files, "\n")
 
 
 # In[ ]:
 
 import os
-for root, dirs, files in os.walk('/tmp/test1'):
-    print root, dirs, files
+
+root, dirs, files, aaaa = ('root', ['d1', 'd2'], ['f1'], 1)
+
+a, b = 1, 2
+print(a, b)
+
+a, b = b, a
+print(a, b)
+
+
+for root, dirs, files in os.walk('/tmp/'):
+    print(root, dirs, files)
 
 
 # In[ ]:
 
 import os
-for root, dirs, files in os.walk('/etc'):
+for root, dirs, files in os.walk('/tmp'):
     for file in files:
-        print os.path.join(root, file)
+        print(os.path.join(root, file))
 
 
 # In[ ]:
 
 import os
+
 list_of_file_names = []
 for root, dirs, files in os.walk('/etc'):
     for file in files:
-        list_of_file_names.append(file)
+        list_of_file_names.append(os.path.join(root, file))
 
-print list_of_file_names
+print(list_of_file_names)
+
+
+# In[1]:
+
+d = {'key1': 1, 'key2':2}
+print(d.items())
+
+e = dict(d.items())
+print(e)
 
 
 # ### Exercise:
@@ -264,6 +368,7 @@ print list_of_file_names
 # - Hint 2: use file path as dictionary key, ` files_size[file_path] = file_size`
 # - Hint 3: to create dictionary you can use list of tuples e.g: `dict( [ (key1, value), (key2, value), ...] )`
 # - Hint 4: to create path to file, you can concatenate dir path and file name, `os.path.join( directory, file_name )`
+# - Hint 5: to get file size: `os.path.getsize(path)`
 # 
 # 
 # Your output should be similar to:
@@ -277,7 +382,7 @@ print list_of_file_names
 # }
 # ```
 
-# In[ ]:
+# In[31]:
 
 # SOLUTION
 
@@ -285,12 +390,12 @@ import os
 list_of_files = []
 for root, dirs, files in os.walk('/etc'):
     for file in files:
-        path_to_file = os.path.join(root, file)
+        path_to_file = os.path.join(root, file) # root + "/" + file
         if os.path.isfile(path_to_file):
             list_of_files.append((path_to_file, os.path.getsize(path_to_file)))
 
 files_size = dict(list_of_files)
-print files_size
+print(files_size)
 
 
 # In[ ]:
@@ -302,43 +407,70 @@ files_size = {}
 for root, dirs, files in os.walk('/etc'):
     for file in files:
         path_to_file = os.path.join(root, file)
-        if os.path.isfile(path_to_file):
+        try:
             files_size[path_to_file] = os.path.getsize(path_to_file)
-
-print files_size
+        except IOError as exc:
+            print(exc)
+        except OSError as exc:
+            print(exc)
+            
+print(files_size)
 
 
 # #### How to sort data structures
 
-# In[ ]:
+# In[36]:
 
-d = {'key2': 2, 'key1': 1, 'key3': 3}
+item = None
 
-print sorted(d, key=d.get)
+n = [1, 3, 2, 5, 0]
+print(n.sort(), n)
 
-for key in sorted(d, key=d.get):
-    print key, d[key]
+n = [1, 3, 2, 5, 0]
+n_sorted = sorted(n)
+print(n_sorted, n)
 
 
-# In[ ]:
+# In[34]:
+
+L = [3, 1, 2]
+output = L.sort()
+print(output)
+print(L)
+for item in output:
+    print(item)
+
+
+# In[37]:
+
+list_of_tuples = [('file1', 100), ('testfile', 2), ('testfile', 3000), ('password', 450)]
+dict(list_of_tuples)
+
+
+# In[39]:
 
 # EXAMPLES
 
-list_of_tuples = [('file1', 100), ('testfile', 2), ('testfile', 3000), ('password', 450)]
+list_of_tuples = [('a', 100), ('b', 2), ('c', 3000), ('d', 450)]
 
-list_of_tuples.sort(reverse=True)
-print list_of_tuples
+list_of_tuples.sort(reverse=False)
+print(list_of_tuples)
 
 # first approach
 from operator import itemgetter
 
 list_of_tuples.sort(reverse=True, key=itemgetter(1))
-print list_of_tuples
+print(list_of_tuples)
+
+print(itemgetter(1)('ABCDEFG'))
+print(itemgetter(0)([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+print(itemgetter(0, 2, 4)([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 
 # second approach
+
 list_of_tuples.sort(reverse=True, key=lambda item: item[1])
-print list_of_tuples
+print(list_of_tuples)
 
 
 # In[ ]:
@@ -351,12 +483,12 @@ d = {'key2': 2, 'key1': 1, 'key3': 3}  # Dictionary
 # How to convert dictionary to list of tuples
 
 list_of_tuples = d.items()  # List of tuples: [ (k1, v), (k2, v), (k3, v), ... (kn, v)]
-print list_of_tuples
+print(list_of_tuples)
 
 # How to convert list of tuples to dictionary
 
 d = dict(list_of_tuples)
-print d
+print(d)
 
 
 # #### Lamda expression
@@ -393,12 +525,27 @@ print d
 # - https://docs.python.org/2/reference/expressions.html
 # - https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
 
+# In[44]:
+
+d = {'key2': 2, 'key1': 1, 'key3': 3}
+print(d)
+
+print(sorted(d))
+for key in d:
+    print(d[key])
+
+print(sorted(d, key=d.get))
+
+for key in sorted(d, key=d.get, reverse=True):
+    print(key, d[key])
+
+
 # ### Exercise:
 # 
 # Sort dictionary from previous exercise by file size. 
 # Largest files should go first.
 # 
-# - Hint 1: Boot sort and sorted method accept a reverse parameter with a boolean value. 
+# - Hint 1: Booth sort and sorted method accept a reverse parameter with a boolean value. 
 # This is using to flag descending sorts.
 # 
 # `d.sort(reverse=True)`
@@ -408,7 +555,28 @@ print d
 # SOLUTION
 
 for key in sorted(files_size, key=files_size.get, reverse=True):
-    print key, files_size[key]
+    print(key, files_size[key])
+    b
+# SOLUTION 2
+print(sorted(files_size, key=files_size.get, reverse=True))
+
+
+# In[ ]:
+
+#import collections
+#collections.OrderedDict
+
+from collections import OrderedDict
+
+d = {'key2': 2, 'key1': 1, 'key3': 3}
+
+od = OrderedDict(d.items())
+
+# second way to create sorted dict by value not ket
+
+print(sorted(d.items(), key=d.get, reverse=True))
+
+print(OrderedDict(sorted(d.items(), key=d.get, reverse=True)))
 
 
 # ### Exercise:
@@ -429,9 +597,9 @@ for key in sorted(files_size, key=files_size.get, reverse=True):
 # ```
 # 
 # Additionally: try to execute this function as follows:
-# - ```print get_files_size()```
-# - ```print get_files_size('/etc')```
-# - ```print get_files_size('/etc', reverse=True)```
+# - ```print(get_files_size())```
+# - ```print(get_files_size('/etc'))```
+# - ```print(get_files_size('/etc', reverse=True))```
 # 
 # 
 # Hit 1: use OrderedDict
@@ -450,6 +618,7 @@ from collections import OrderedDict
 from operator import itemgetter
 
 def get_files_size(directory='/tmp', reverse=False):
+    dir(os)
     list_of_files = []
     for root, dirs, files in os.walk(directory):
         for file in files:
@@ -458,8 +627,8 @@ def get_files_size(directory='/tmp', reverse=False):
                 list_of_files.append((path_to_file, os.path.getsize(path_to_file)))
     
     return OrderedDict(sorted(list_of_files, key=itemgetter(1), reverse=reverse))
-            
-print get_files_size('/etc')
+          
+print(get_files_size('/etc'))
 
 
 # In[ ]:
@@ -480,12 +649,7 @@ def get_files_size(directory='/tmp', reverse=False):
     
     return OrderedDict(sorted(files_size.items(), key=itemgetter(1), reverse=reverse))
             
-print get_files_size('/etc')
-
-
-# In[ ]:
-
-print get_files_size()
+print(get_files_size('/etc'))
 
 
 # #### User input
@@ -499,10 +663,10 @@ print get_files_size()
 # 
 # 
 
-# In[ ]:
+# In[45]:
 
 your_input = raw_input('Please provide file name: ')
-print your_input
+print(your_input)
 
 
 # In[ ]:
@@ -511,6 +675,7 @@ print your_input
 
 import sys
 
+# $0 - script name, $1 .. $9 - args
 script_name = sys.argv[0] # script name, e.g.: your_script
 arg1 = sys.argv[1] # first argument, e.g.: argument1
 arg2 = sys.argv[2] # second argument, e.g.: argument2
@@ -518,7 +683,12 @@ arg2 = sys.argv[2] # second argument, e.g.: argument2
 
 # In[ ]:
 
-import argparse
+import argparse # since 2.7, or optparse, click (py3)
+
+# python script.py --directory /etc
+# python script.py -d /etc
+# python script.py -d /etc --verbose
+
 
 parser = argparse.ArgumentParser(description='Script to list out files from given directory')
 
@@ -527,8 +697,8 @@ parser.add_argument('--verbose', '-v', action='store_true', help='If set, print 
 
 args = parser.parse_args()
 
-print "directory: ", args.directory
-print "verbose:   ", args.verbose
+print("directory: ", args.directory)
+print("verbose:   ", args.verbose)
 
 
 # #### Python file as standalone program
@@ -541,10 +711,10 @@ print "verbose:   ", args.verbose
 # 
 # ```python
 # def func1():
-#     print "func1"
+#     print("func1")
 #     
 # def func2():
-#     print "func2"
+#     print("func2")
 # 
 # if __name__ == '__main__':
 #     # execute only if run as a script
@@ -557,8 +727,8 @@ print "verbose:   ", args.verbose
 # In[ ]:
 
 def do_something(directory, verbose):
-    print "directory: ", directory
-    print "verbose:   ", verbose
+    print("directory: ", directory)
+    print("verbose:   ", verbose)
     
 
 if __name__ == "__main__":
@@ -616,11 +786,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Script to list out files from given directory')
 
     parser.add_argument('--directory', '-d', required=True, help='Source directory')
-    parser.add_argument('--reverse', '-v', action='store_true', help='If set, use descending order')
+    parser.add_argument('--reverse', '-r', action='store_true', help='If set, use descending order')
 
     args = parser.parse_args()    
     
-    print get_files_size(directory=args.directory, reverse=args.reverse)
+    print(get_files_size(directory=args.directory, reverse=args.reverse))
 
 
 # ### Exercise
@@ -717,7 +887,7 @@ def get_timestamp():
 
 def write_to_file(file_path, dict_to_write):
     if not file_path:
-        file_path = os.path.join('/tmp', "{}_files.out".format(get_timestamp()))
+        file_path = os.path.join(os.sep, 'tmp', "{}_files.out".format(get_timestamp()))
 
     try:
         with open(file_path, 'w') as f:
@@ -746,7 +916,7 @@ if __name__ == '__main__':
 
 # #### How to execute external commands in python
 # 
-# To execute external command commands (shell commands) you can choose one of the following methods:
+# To execute external commands (shell commands) you can choose one of the following methods:
 # 1. `os.system("command")`
 # 2. `stream = os.popen("command")`
 # 3. `subprocess.call("command")` - recommended, it replaces above-mentioned commands
@@ -756,23 +926,26 @@ if __name__ == '__main__':
 # - https://docs.python.org/2/library/subprocess.html#subprocess-replacements
 # - https://pymotw.com/2/subprocess/
 
+# In[48]:
+
+import subprocess
+print(subprocess.call("uname -a", shell=True)) # returns only exit code
+
+
 # In[ ]:
 
 import subprocess
-print subprocess.call("uname -a", shell=True) # returns only exit code
+output = subprocess.check_output("cat /etc/passwd | grep /sbin/nologin | cut -f 1 -d:", shell=True)
+for item in output.split(" "):
+    print(item)
 
 
 # In[ ]:
 
-import subprocess
-print subprocess.check_output("uname -a", shell=True)
-
-
-# In[ ]:
-
-# list out all account names with /sbin/nologin shell (politely refuse a login) from /etc/passwd file
+# list out all account names with /sbin/nologin shell (politely refuse a login) 
+# from /etc/passwd file
 # equivalent to: 
-# cat /etc/passwd | grep /bin/false | cut -f 1 -d:
+# cat /etc/passwd | grep /sbin/nologin | cut -f 1 -d:
 
 import subprocess
 
@@ -788,17 +961,23 @@ cut = subprocess.Popen(['cut', '-f', '1', '-d:'],
                         stdout=subprocess.PIPE)
 
 nologin_accounts = cut.stdout
-print nologin_accounts
+print(nologin_accounts)
 
 nologin_accounts = [account.strip() for account in nologin_accounts]
-print nologin_accounts
+print(nologin_accounts)
 
 
 # ### Exercise
 # 
 # Create a script that will execute "ps -aux" command. Collect first 10 lines only.
 
-# In[ ]:
+# In[65]:
+
+s = "item\n item2\n item3"
+s.split("\n")
+
+
+# In[61]:
 
 # SOLUTION
 
@@ -808,10 +987,10 @@ output = subprocess.check_output("ps -aux", shell=True)
 output_list = output.split('\n')
 
 for index, line in enumerate(output_list[:10]):
-    print "{}) {} \n".format(index, line)
+    print("{}) {}".format(index, line))
 
 
-# In[ ]:
+# In[60]:
 
 # ALTERNATIVE SOLUTION
 
@@ -826,59 +1005,78 @@ head = subprocess.Popen(['head', '-n10'],
 
 processes = head.stdout
 for index, line in enumerate(processes):
-    print "{}) {} \n".format(index, line)
+    print("{}) {} \n".format(index, line))
 
 
 # #### Data persistence
 
-# In[ ]:
+# In[72]:
 
 import json
+# import simplejson
 
 data = {'int': 100, 'string': 'string', 'bool': True,  'list': [1, 2, 3, 4], 'dict': {'key1': 1, 'key2': 2}}
+print(type(data), data)
 
-print json.dumps(data, indent=4)
+data_json = json.dumps(data, indent=4)
+print(type(data_json), data_json)
+
+data2 = json.loads(data_json)
+print(data2)
+
+print(json.dumps({"msg": "error"}))
 
 
 # #### HTTP for Humans
 # 
 # http://docs.python-requests.org/en/master/
 
-# In[ ]:
+# In[73]:
 
 import requests
 
 r = requests.get('http://date.jsontest.com/')
 
-print r.text
+print(r.text)
+print(r.json())
 
-print r.json()
 
-
-# In[ ]:
+# In[74]:
 
 import requests
 
 r = requests.get('http://date.jsontest.com/')
 
 data = r.json()
-print "Date: ", data['date']
-print "Timestamp: ", data['milliseconds_since_epoch']
-print "Time: ", data['time']
+print("Date: ", data['date'])
+print("Timestamp: ", data['milliseconds_since_epoch'])
+print("Time: ", data['time'])
 
 
 # In[ ]:
+
+import os
+import requests
+from BeautifulSoup import BeautifulSoup
+
+url = "https://www.python.org/ftp/python/"
+r = requests.get(url)
+
+print(r.text)
+
+
+# In[75]:
 
 import requests
 
 payload = {'key1': 'value1', 'key2': 'value2'}
 r = requests.get('http://httpbin.org/get', params=payload)
 
-print r.url
-print r.json()
+print(r.url)
+print(r.json())
 
 
-# In[ ]:
+# In[80]:
 
 import os
 import requests
@@ -891,7 +1089,7 @@ soup = BeautifulSoup(r.text)
 links = soup.findAll('a', href=True)
 
 for link in links:
-    python_version = link['href']
+    python_version = link['href']    
     
     r = requests.get(os.path.join(url, python_version))
     
@@ -900,7 +1098,7 @@ for link in links:
     
     for link in links:
         if link['href'].endswith('exe'):
-            print os.path.join(url, link['href'])
+            print(os.path.join(url, python_version, link['href']))
 
 
 # ### Exercise
@@ -926,14 +1124,14 @@ links = soup.findAll('a', href=True)
 
 for link in links:
     if link['href'].endswith('exe'):
-        print os.path.join(url, link['href'])
+        print(os.path.join(url, link['href']))
 
 
 # #### The ElementTree XML API
 # 
 # https://docs.python.org/2/library/xml.etree.elementtree.html
 
-# In[ ]:
+# In[82]:
 
 country_data = """<?xml version="1.0"?>
 <data>
@@ -961,7 +1159,7 @@ country_data = """<?xml version="1.0"?>
 """
 
 
-# In[ ]:
+# In[83]:
 
 import xml.etree.ElementTree as ET
 
@@ -973,11 +1171,104 @@ root = ET.fromstring(country_data)
 
 countries = root.findall('country')
 for country in countries:
-    print "Country: ", country.get('name')
+    print("Country: ", country.get('name'))
     
     country_neighbours = country.findall('neighbor')
     for neighbor in country_neighbours:
-        print "Neigbor: ", neighbor.get('name')
+        print("Neigbor: ", neighbor.get('name'))
         
-    print "-" * 30
+    print("-" * 30)
+
+
+# In[ ]:
+
+python -m SimpleHTTPServer
+
+
+# ### Databases
+# 
+# https://docs.python.org/2/library/sqlite3.html
+# http://docs.sqlalchemy.org/en/latest/dialects/sqlite.html
+# 
+
+# #### SQLite
+
+# In[6]:
+
+import sqlite3
+conn = sqlite3.connect('example.db')
+
+c = conn.cursor()
+
+# Create table
+c.execute('''CREATE TABLE stocks
+             (date text, trans text, symbol text, qty real, price real)''')
+
+# Insert a row of data
+c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
+c.execute("INSERT INTO stocks VALUES ('2006-02-05','BUY','RHAT2',101,40.24)")
+
+# Save (commit) the changes
+conn.commit()
+conn.close()
+
+
+# In[7]:
+
+import sqlite3
+conn = sqlite3.connect('example.db')
+
+c = conn.cursor()
+for row in c.execute('SELECT * FROM stocks ORDER BY price'):
+    print(row)
+
+
+# #### SQLAlchemy
+
+# In[19]:
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.orm import sessionmaker
+
+Base = declarative_base()
+
+class User(Base):
+  __tablename__ = 'users'
+  
+  id = Column(Integer, primary_key=True)
+  name = Column(String)
+  fullname = Column(String)
+  password = Column(String)
+  
+  def __init__(self, name, fullname, password):
+      self.name = name
+      self.fullname = fullname
+      self.password = password
+
+  def __repr__(self):
+     return "<User('%s','%s', '%s')>" % (self.name, self.fullname, self.password)
+    
+    
+engine = create_engine('sqlite:///:memory:', echo=True)
+Base.metadata.create_all(engine)
+
+user1 = User('Vincent', 'Vega', 'aaaa1')
+user2 = User('Butch', 'Coolidge', 'watch22')
+
+print(user1, user2)
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+session.add_all([user1, user2])
+session.commit()
+
+
+print("-->", session.query(User).filter_by(name='Vincent').first())
+
+
+# In[ ]:
+
+
 
